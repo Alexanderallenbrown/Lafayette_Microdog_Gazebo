@@ -1,0 +1,115 @@
+<!-- Developer: Sanha Lee -->
+<!-- Date: April.13.2020 -->
+<!-- Description: This is a launch file that runs all nodes for generating 2D walking gait in Gazebo simulation -->
+
+<launch>
+
+    <node pkg="openDog_description" type="3D_inverse_kinematics.py" name="inverse_kinematics_1">
+        <param name = "phase_shift" value = '0'/>
+        <param name = "leg_pace" value = '3.5'/>
+        <param name = "x_center" value = '0.1'/>
+        <param name = "x_stride" value = '0.1'/>
+        <param name = "y_center" value = '-0.025'/>
+        <param name = "y_offset" value = '0'/>
+        <param name = "z_center" value = '-0.56'/>
+        <param name = "z_lift" value = '0.09'/>
+        <param name = "femur_angle" value = "/theta_f_1"/>
+        <param name = "tibia_angle" value = "/theta_t_1"/>
+        <param name = "hip_angle" value = "/theta_h_1"/>
+        <param name = "foot_position" value = "/footPosition_1"/>
+        <param name = "leg" value = '1'/>
+    </node>
+
+    
+    <node pkg="openDog_description" type="3D_inverse_kinematics.py" name="inverse_kinematics_2">
+        <param name = "phase_shift" value = '3.1415926'/>
+        <param name = "leg_pace" value = '3.5'/>
+        <param name = "x_center" value = '0.1'/>
+        <param name = "x_stride" value = '0.1'/>
+        <param name = "y_center" value = '-0.025'/>
+        <param name = "y_offset" value = '0'/>
+        <param name = "z_center" value = '-0.56'/>
+        <param name = "z_lift" value = '0.09'/>
+        <param name = "femur_angle" value = "/theta_f_2"/>
+        <param name = "tibia_angle" value = "/theta_t_2"/>
+        <param name = "hip_angle" value = "/theta_h_2"/>
+        <param name = "foot_position" value = "/footPosition_2"/>
+        <param name = "leg" value = '2'/>
+    </node>
+
+
+    <node pkg="openDog_description" type="3D_inverse_kinematics.py" name="inverse_kinematics_3">
+        <param name = "phase_shift" value = '3.1415926'/>
+        <param name = "leg_pace" value = '3.5'/>
+        <param name = "x_center" value = '0.1'/>
+        <param name = "x_stride" value = '0.1'/>
+        <param name = "y_center" value = '-0.025'/>
+        <param name = "y_offset" value = '0'/>
+        <param name = "z_center" value = '-0.56'/>
+        <param name = "z_lift" value = '0.09'/>
+        <param name = "femur_angle" value = "/theta_f_3"/>
+        <param name = "tibia_angle" value = "/theta_t_3"/>
+        <param name = "hip_angle" value = "/theta_h_3"/>
+        <param name = "foot_position" value = "/footPosition_3"/>
+        <param name = "leg" value = '3'/>
+    </node>
+
+
+    <node pkg="openDog_description" type="3D_inverse_kinematics.py" name="inverse_kinematics_4">
+        <param name = "phase_shift" value = '0'/> 
+        <param name = "leg_pace" value = '3.5'/>
+        <param name = "x_center" value = '0.1'/>
+        <param name = "x_stride" value = '0.1'/>
+        <param name = "y_center" value = '-0.025'/>
+        <param name = "y_offset" value = '0'/>
+        <param name = "z_center" value = '-0.56'/>
+        <param name = "z_lift" value = '0.09'/>
+        <param name = "femur_angle" value = "/theta_f_4"/>
+        <param name = "tibia_angle" value = "/theta_t_4"/>
+        <param name = "hip_angle" value = "/theta_h_4"/>
+        <param name = "foot_position" value = "/footPosition_4"/>
+        <param name = "leg" value = '4'/>
+    </node>
+
+
+
+    <node pkg="openDog_description" type="3D_gazebo_joint.py" name="gazebo_joint_1">
+        <param name = "femur_angle" value = "/theta_f_1"/>
+        <param name = "tibia_angle" value = "/theta_t_1"/>
+        <param name = "hip_angle" value = "/theta_h_1"/>
+        <param name = "tibia_controller" value = "/opendog/joint1_position_controller/command"/>
+        <param name = "femur_controller" value = "/opendog/joint5_position_controller/command"/>
+        <param name = "hip_controller" value = "/opendog/joint9_position_controller/command"/>
+    </node>
+
+    <node pkg="openDog_description" type="3D_gazebo_joint.py" name="gazebo_joint_2">
+        <param name = "femur_angle" value = "/theta_f_2"/>
+        <param name = "tibia_angle" value = "/theta_t_2"/>
+        <param name = "hip_angle" value = "/theta_h_2"/>
+        <param name = "tibia_controller" value = "/opendog/joint2_position_controller/command"/>
+        <param name = "femur_controller" value = "/opendog/joint6_position_controller/command"/>
+        <param name = "hip_controller" value = "/opendog/joint10_position_controller/command"/>
+    </node>
+
+    <node pkg="openDog_description" type="3D_gazebo_joint.py" name="gazebo_joint_3">
+        <param name = "femur_angle" value = "/theta_f_3"/>
+        <param name = "tibia_angle" value = "/theta_t_3"/>
+        <param name = "hip_angle" value = "/theta_h_3"/>
+        <param name = "tibia_controller" value = "/opendog//joint3_position_controller/command"/>
+        <param name = "femur_controller" value = "/opendog/joint7_position_controller/command"/>
+        <param name = "hip_controller" value = "/opendog/joint11_position_controller/command"/>
+    </node>
+
+    <node pkg="openDog_description" type="3D_gazebo_joint.py" name="gazebo_joint_4">
+        <param name = "femur_angle" value = "/theta_f_4"/>
+        <param name = "tibia_angle" value = "/theta_t_4"/>
+        <param name = "hip_angle" value = "/theta_h_4"/>
+        <param name = "tibia_controller" value = "/opendog/joint4_position_controller/command"/>
+        <param name = "femur_controller" value = "/opendog/joint8_position_controller/command"/>
+        <param name = "hip_controller" value = "/opendog/joint12_position_controller/command"/>
+    </node>
+
+<!-- <node pkg="rosservice" type="rosservice" name="body" args="call /gazebo/apply_body_wrench '{body_name: &quot;openDog_full::lower_extrusion_leg4_fixed_joint_lump__foot_4_collision_1&quot;,reference_frame: &quot;openDog_full::lower_extrusion_leg4_fixed_joint_lump__foot_4_collision_1&quot;, reference_point: { x: 0, y: -0.4, z: 0},wrench: { force: { x: 0, y: 500 , z: 0 } }, start_time: 0, duration: -1 }'" />  -->
+
+
+</launch>
